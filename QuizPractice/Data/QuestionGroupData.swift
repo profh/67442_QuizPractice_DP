@@ -6,6 +6,22 @@
 
 import Foundation
 
+extension MutableCollection {
+  /// Shuffles the contents of this collection.
+  mutating func shuffle() {
+    let c = count
+    guard c > 1 else { return }
+    
+    for (firstUnshuffled, unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
+      // Change `Int` in the next line to `IndexDistance` in < Swift 4.1
+      let d: Int = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
+      let i = index(firstUnshuffled, offsetBy: d)
+      swapAt(firstUnshuffled, i)
+    }
+  }
+}
+
+
 extension QuestionGroup {
   
   public static func allGroups() -> [QuestionGroup] {
@@ -13,9 +29,8 @@ extension QuestionGroup {
   }
   
   public static func intOnly() -> QuestionGroup {
-    let questions = [
-      //Question(prompt: "God has put the > body together, giving greater honor to the parts that lacked it, so that what?", answer: "Do not cause anyone to stumble, whether Jews, Greeks or the church of God-- even as I try to please everyone in every way. For I am not seeking my own good but the good of many, so that they may be saved.", verse: "1 Corinthians 12:24-25"),
-      //Question(prompt: "Quote 1 Corinthians chapter 10 verses 32 and 33.", answer: "Do not cause anyone to stumble, whether Jews, Greeks or the church of God-- even as I try to please everyone in every way. For I am not seeking my own good but the good of many, so that they may be saved.", verse: "1 Corinthians 10:32-33"),
+    var questions = [
+      // Question(prompt: "God has put the > body together, giving greater honor to the parts that lacked it, so that what?", answer: "Do not cause anyone to stumble, whether Jews, Greeks or the church of God-- even as I try to please everyone in every way. For I am not seeking my own good but the good of many, so that they may be saved.", verse: "1 Corinthians 12:24-25"),
       Question(prompt: "Where there > are tongues, they will be what?", answer: "Stilled.", verse: "1 Corinthians 13:8"),
       Question(prompt: "The sting > of death is what?", answer: "Sin.", verse: "1 Corinthians 15:56"),
       Question(prompt: "This liberal > what?", answer: "Gift.", verse: "2 Corinthians 8:20"),
@@ -316,11 +331,14 @@ extension QuestionGroup {
       Question(prompt: "He will also provide > a way out when?", answer: "When you are tempted.", verse: "1 Corinthians 10:13"),
       Question(prompt: "I try > to please everyone how?", answer: "In every way. ", verse: "1 Corinthians 10:33")
     ]
-    return QuestionGroup(questions: questions, title: "INT Only")
+    questions.shuffle()
+    let theseQuestions = Array(questions[0..<20])
+    return QuestionGroup(questions: theseQuestions, title: "Interrogative Questions")
   }
   
+  // MARK: multiple answers
   public static func maOnly() -> QuestionGroup {
-    let questions = [
+    var questions = [
       Question(prompt: "Such a place > in our hearts that we would what?", answer: "Live or die with you.", verse: "2 Corinthians 7:3"),
       Question(prompt: "Did not have > what?", answer: "Too much; too little.", verse: "2 Corinthians 8:15"),
       Question(prompt: "On my way > where?", answer: "To Macedonia; to Judea.", verse: "2 Corinthians 1:16"),
@@ -456,11 +474,14 @@ extension QuestionGroup {
       Question(prompt: "Her aim > is to be devoted to the Lord in both what?", answer: "Body and spirit.", verse: "1 Corinthians 7:34"),
       Question(prompt: "If one > part what?", answer: "Suffers; is honored.", verse: "1 Corinthians 12:26")
     ]
-    return QuestionGroup(questions: questions, title: "INT & MAs")
+    questions.shuffle()
+    let theseQuestions = Array(questions[0..<20])
+    return QuestionGroup(questions: theseQuestions, title: "Mutliple Answer Questions")
   }
   
+  // MARK: memory verses
   public static func memoryVerses() -> QuestionGroup {
-    let questions = [
+    var questions = [
       Question(prompt: "Not that we are > competent ", answer: "in ourselves to claim anything for ourselves, but our competence comes from God.", verse: "2 Corinthians 3:5"),
       Question(prompt: "Quote 2 Corinthians chapter 4 verse 16.", answer: "Therefore we do not lose heart. Though outwardly we are wasting away, yet inwardly we are being renewed day by day.", verse: "2 Corinthians 4:16"),
       Question(prompt: "What we > have received is ", answer: "not the spirit of the world, but the Spirit who is from God, so that we may understand what God has freely given us.", verse: "1 Corinthians 2:12"),
@@ -732,7 +753,9 @@ extension QuestionGroup {
        Question(prompt: "Quote 2 Corinthians chapter 3 verse 2.", answer: "You yourselves are our letter, written on our hearts, known and read by everyone.", verse: "2 Corinthians 3:2"),
        Question(prompt: "Quote 1 Corinthians chapter 10 verse 12.", answer: "So, if you think you are standing firm, be careful that you don't fall!", verse: "1 Corinthians 10:12")
     ]
-    return QuestionGroup(questions: questions, title: "FTV and Quotes")
+    questions.shuffle()
+    let theseQuestions = Array(questions[0..<20])
+    return QuestionGroup(questions: theseQuestions, title: "Memory Verse Questions")
   }
   
 }

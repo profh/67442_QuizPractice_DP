@@ -6,6 +6,19 @@
 
 import UIKit
 
+// MARK:  QuestionViewControllerDelegate
+protocol QuestionViewControllerDelegate: class {
+
+  func questionViewController(
+    _ viewController: QuestionViewController,
+    didCancel questionGroup: QuestionGroup,
+    at questionIndex: Int)
+
+  func questionViewController(
+    _ viewController: QuestionViewController,
+    didComplete questionGroup: QuestionGroup)
+}
+
 class QuestionViewController: UIViewController {
   
   // MARK: outlets
@@ -20,6 +33,8 @@ class QuestionViewController: UIViewController {
   public var questionIndex = 0
   public var correctCount = 0
   public var questionCount = 0
+  public var delegate: QuestionViewControllerDelegate?
+
   
   // MARK: actions
   @IBAction func correctTapped(_ sender: Any) {
@@ -55,7 +70,8 @@ class QuestionViewController: UIViewController {
   private func showNextQuestion() {
     questionIndex += 1
     guard questionIndex < questionGroup.questions.count else {
-      // TODO: - Handle this...!
+      delegate?.questionViewController(self, didComplete: questionGroup)
+
       return
     }
     showQuestion()
@@ -64,10 +80,27 @@ class QuestionViewController: UIViewController {
   // MARK: viewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
+//    setupCancelButton()
+    navigationItem.title = questionGroup.title
     numCorrectLabel.text = "0"
     numAttemptedLabel.text = "0"
     showQuestion()
   }
+  
+//  private func setupCancelButton() {
+//    let action = #selector(handleCancelPressed(sender:))
+//    let image = UIImage(named: "ic_menu")
+//    navigationItem.leftBarButtonItem =
+//      UIBarButtonItem(image: image,
+//                      landscapeImagePhone: nil,
+//                      style: .plain,
+//                      target: self,
+//                      action: action)
+//  }
+//
+//  @objc private func handleCancelPressed(sender: UIBarButtonItem) {
+//    delegate?.questionViewController(self, didCancel: questionGroup, at: questionIndex)
+//  }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
