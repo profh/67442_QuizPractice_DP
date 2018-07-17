@@ -1,8 +1,6 @@
 //
 //  QuizPracticeTests.swift
 //  QuizPracticeTests
-//
-//  Created by Larry Heimann on 7/16/18.
 //  Copyright © 2018 Larry Heimann. All rights reserved.
 //
 

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Question View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="QuestionViewController" customModule="QuizPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="QuestionView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Old Notebook Wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="2kR-mi-9D7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prompt goes here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7B-gg-Wyx">
+                                <rect key="frame" x="38" y="123" width="300" height="24.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="pVa-xR-RhM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer goes here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaK-Z3-2nK">
+                                <rect key="frame" x="53" y="207.5" width="270" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="j52-wI-L6W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMd-5d-Ldw">
+                                <rect key="frame" x="45" y="487" width="90" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="TL0-Us-maD"/>
+                                    <constraint firstAttribute="width" constant="90" id="dDR-qF-E5J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Correct">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="correctTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uE0-7q-skD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJy-vE-CWO">
+                                <rect key="frame" x="239" y="487" width="90" height="60"/>
+                                <color key="backgroundColor" red="0.80754282994923854" green="0.19413782115349465" blue="0.14844079635804799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="FS6-59-Bji"/>
+                                    <constraint firstAttribute="width" constant="90" id="qkM-wF-wWG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Wrong">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="wrongTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zcb-11-RP1"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjA-oC-mQY">
+                                <rect key="frame" x="156" y="446" width="21" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YG7-Wm-cbY">
+                                <rect key="frame" x="185" y="446" width="5.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yV-Ht-6wp">
+                                <rect key="frame" x="198" y="446" width="21" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2YZ-9Z-Aw8">
+                                <rect key="frame" x="162" y="207.5" width="51" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                <state key="normal" title="Answer"/>
+                                <connections>
+                                    <action selector="showAnswerLabel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wru-7O-gTA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.9896702883902857" blue="0.94957529914114158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="YG7-Wm-cbY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0MK-kC-wvw"/>
+                            <constraint firstItem="IaK-Z3-2nK" firstAttribute="top" secondItem="s7B-gg-Wyx" secondAttribute="bottom" constant="60" id="1aE-zJ-o7o"/>
+                            <constraint firstItem="2kR-mi-9D7" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="1cB-x3-mBa"/>
+                            <constraint firstItem="2YZ-9Z-Aw8" firstAttribute="top" secondItem="s7B-gg-Wyx" secondAttribute="bottom" constant="60" id="25O-hJ-zeG"/>
+                            <constraint firstItem="YG7-Wm-cbY" firstAttribute="leading" secondItem="KjA-oC-mQY" secondAttribute="trailing" constant="7.5" id="93Q-r2-bm4"/>
+                            <constraint firstItem="5yV-Ht-6wp" firstAttribute="leading" secondItem="YG7-Wm-cbY" secondAttribute="trailing" constant="7.5" id="AWJ-qj-yLa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SJy-vE-CWO" secondAttribute="trailing" constant="46" id="Gqm-si-c9x"/>
+                            <constraint firstItem="IaK-Z3-2nK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="H81-rQ-zjT"/>
+                            <constraint firstItem="2kR-mi-9D7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MHt-bf-Kpm"/>
+                            <constraint firstItem="s7B-gg-Wyx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NfH-32-H12"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tMd-5d-Ldw" secondAttribute="bottom" constant="120" id="Ovs-e8-fVf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KjA-oC-mQY" secondAttribute="bottom" constant="200" id="Qvd-os-zcw"/>
+                            <constraint firstItem="2kR-mi-9D7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RHM-Pl-dAv"/>
+                            <constraint firstItem="s7B-gg-Wyx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="103" id="SEn-ia-Vg7"/>
+                            <constraint firstItem="2kR-mi-9D7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SGh-EX-K9x"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YG7-Wm-cbY" secondAttribute="bottom" constant="200" id="UxN-wU-7xZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5yV-Ht-6wp" secondAttribute="bottom" constant="200" id="Yrd-ED-9Fz"/>
+                            <constraint firstItem="tMd-5d-Ldw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="g5I-SY-w0L"/>
+                            <constraint firstItem="2YZ-9Z-Aw8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lmJ-CE-wxR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SJy-vE-CWO" secondAttribute="bottom" constant="120" id="saI-nj-KXc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="answerButton" destination="2YZ-9Z-Aw8" id="4HU-iF-tNO"/>
+                        <outlet property="answerLabel" destination="IaK-Z3-2nK" id="YKn-7U-jnp"/>
+                        <outlet property="numAttemptedLabel" destination="5yV-Ht-6wp" id="klS-UP-Qg8"/>
+                        <outlet property="numCorrectLabel" destination="KjA-oC-mQY" id="Ogx-WT-6RN"/>
+                        <outlet property="promptLabel" destination="s7B-gg-Wyx" id="sAn-SH-DSe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Old Notebook Wallpaper" width="1080" height="1920"/>
+    </resources>
+</document>
