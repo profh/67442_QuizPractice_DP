@@ -29,7 +29,7 @@ class QuestionViewController: UIViewController {
   @IBOutlet weak var numAttemptedLabel: UILabel!
   
   // MARK: instance variable
-  public var questionGroup = QuestionGroup.intOnly()
+  public var questionGroup = QuestionGroup.intQuestions()  // we will let them choose in later iterations
   public var questionIndex = 0
   public var correctCount = 0
   public var questionCount = 0
@@ -86,21 +86,7 @@ class QuestionViewController: UIViewController {
     numAttemptedLabel.text = "0"
     showQuestion()
   }
-  
-//  private func setupCancelButton() {
-//    let action = #selector(handleCancelPressed(sender:))
-//    let image = UIImage(named: "ic_menu")
-//    navigationItem.leftBarButtonItem =
-//      UIBarButtonItem(image: image,
-//                      landscapeImagePhone: nil,
-//                      style: .plain,
-//                      target: self,
-//                      action: action)
-//  }
-//
-//  @objc private func handleCancelPressed(sender: UIBarButtonItem) {
-//    delegate?.questionViewController(self, didCancel: questionGroup, at: questionIndex)
-//  }
+
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
