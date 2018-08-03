@@ -6,22 +6,6 @@
 
 import Foundation
 
-extension MutableCollection {
-  /// Shuffles the contents of this collection.
-  mutating func shuffle() {
-    let c = count
-    guard c > 1 else { return }
-    
-    for (firstUnshuffled, unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
-      // Change `Int` in the next line to `IndexDistance` in < Swift 4.1
-      let d: Int = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
-      let i = index(firstUnshuffled, offsetBy: d)
-      swapAt(firstUnshuffled, i)
-    }
-  }
-}
-
-
 extension QuestionGroup {
   
   public static func allGroups() -> [QuestionGroup] {
@@ -61,7 +45,7 @@ extension QuestionGroup {
       Question(prompt: "Who chose the weak > things of the world to shame the strong?", answer: "God.", verse: "1 Corinthians 1:27"),
       Question(prompt: "Who chose the foolish > things of the world to shame the wise?", answer: "God.", verse: "1 Corinthians 1:27"),
       Question(prompt: "Who chose the lowly > things of this world and the despised things--and the things that are not--to nullify the things that are?", answer: "God.", verse: "1 Corinthians 1:28"),
-      Question(prompt: " It is because > of him that you are what?", answer: "In Christ Jesus.", verse: "1 Corinthians 1:30"),
+      Question(prompt: "It is because > of him that you are what?", answer: "In Christ Jesus.", verse: "1 Corinthians 1:30"),
       Question(prompt: "Who has become > for us wisdom from God?", answer: "Christ Jesus.", verse: "1 Corinthians 1:30"),
       Question(prompt: "I always > thank my God for you why?", answer: "Because of his grace given you in Christ Jesus. ", verse: "1 Corinthians 1:4"),
       Question(prompt: "I always > thank whom?", answer: "My God.", verse: "1 Corinthians 1:4"),
@@ -87,7 +71,7 @@ extension QuestionGroup {
       Question(prompt: "What might not rest > on human wisdom?", answer: "Your faith.", verse: "1 Corinthians 2:5"),
       Question(prompt: "So that your faith > might not rest on what?", answer: "Human wisdom.", verse: "1 Corinthians 2:5"),
       Question(prompt: "Who are coming > to nothing?", answer: "The rulers of this age.", verse: "1 Corinthians 2:6"),
-      Question(prompt: "No, we > declare Gods what? ", answer: "Wisdom.", verse: "1 Corinthians 2:7"),
+      Question(prompt: "No, we > declare God's what? ", answer: "Wisdom.", verse: "1 Corinthians 2:7"),
       Question(prompt: "What began? >", answer: "Time.", verse: "1 Corinthians 2:7"),
       Question(prompt: "No eye > has what?", answer: "Seen.", verse: "1 Corinthians 2:9"),
       Question(prompt: "No human > mind has conceived what?", answer: "The things God has prepared for those who love him.", verse: "1 Corinthians 2:9"),
@@ -103,8 +87,8 @@ extension QuestionGroup {
       Question(prompt: "What will bring it > to light?", answer: "The Day.", verse: "1 Corinthians 3:13"),
       Question(prompt: "Who will suffer > loss?", answer: "The builder.", verse: "1 Corinthians 3:15"),
       Question(prompt: "Who dwells > in your midst?", answer: "God's Spirit.", verse: "1 Corinthians 3:16"),
-      Question(prompt: "Gods Spirit > dwells where?", answer: "In your midst.", verse: "1 Corinthians 3:16"),
-      Question(prompt: "Gods temple is > what?", answer: "Sacred.", verse: "1 Corinthians 3:17"),
+      Question(prompt: "God's Spirit > dwells where?", answer: "In your midst.", verse: "1 Corinthians 3:16"),
+      Question(prompt: "God's temple is > what?", answer: "Sacred.", verse: "1 Corinthians 3:17"),
       Question(prompt: "Do not deceive >whom?", answer: "Yourselves.", verse: "1 Corinthians 3:18"),
       Question(prompt: "You should become > fools why?", answer: "So that you may become wise.", verse: "1 Corinthians 3:18"),
       Question(prompt: "He catches > the wise what?", answer: "In their craftiness.", verse: "1 Corinthians 3:19"),
@@ -204,7 +188,7 @@ extension QuestionGroup {
       Question(prompt: "Called us > to live how?", answer: "In peace.", verse: "1 Corinthians 7:15"),
       Question(prompt: "What rule? >", answer: "The rule I lay down in all the churches.", verse: "1 Corinthians 7:17"),
       Question(prompt: "Nevertheless, each > person should live how?", answer: "As a believer in whatever situation the Lord has assigned to them, just as God has called them.", verse: "1 Corinthians 7:17"),
-      Question(prompt: "Keeping Gods > commands is what?", answer: "What counts.", verse: "1 Corinthians 7:19"),
+      Question(prompt: "Keeping God's > commands is what?", answer: "What counts.", verse: "1 Corinthians 7:19"),
       Question(prompt: "Whose commands? >", answer: "God's.", verse: "1 Corinthians 7:19"),
       Question(prompt: "What counts? >", answer: "Keeping God's commands.", verse: "1 Corinthians 7:19"),
       Question(prompt: "Circumcision > is what?", answer: "Nothing.", verse: "1 Corinthians 7:19"),
@@ -248,11 +232,11 @@ extension QuestionGroup {
       Question(prompt: "We all possess > what?", answer: "Knowledge.", verse: "1 Corinthians 8:1"),
       Question(prompt: "Knowledge puffs > up while love what?", answer: "Builds up.", verse: "1 Corinthians 8:1"),
       Question(prompt: "If someone with > a weak conscience sees you, with all your knowledge, what?", answer: "Eating in an idol's temple.", verse: "1 Corinthians 8:10"),
-      Question(prompt: "Wont > that person be what?", answer: "Emboldened to eat what is sacrificed to idols.", verse: "1 Corinthians 8:10"),
+      Question(prompt: "Won't > that person be what?", answer: "Emboldened to eat what is sacrificed to idols.", verse: "1 Corinthians 8:10"),
       Question(prompt: "Wound > their weak what?", answer: "Conscience.", verse: "1 Corinthians 8:12"),
       Question(prompt: "If what I > eat causes my brother or sister to fall into sin, I will what?", answer: "Never eat meat again.", verse: "1 Corinthians 8:13"),
       Question(prompt: "I will never > eat meat again when?", answer: "If what I eat causes my brother or sister to fall into sin.", verse: "1 Corinthians 8:13"),
-      Question(prompt: " I will never > eat meat again, why?", answer: "So that I will not cause them to fall.", verse: "1 Corinthians 8:13"),
+      Question(prompt: "I will never > eat meat again, why?", answer: "So that I will not cause them to fall.", verse: "1 Corinthians 8:13"),
       Question(prompt: "Who is known > by God?", answer: "Whoever loves God.", verse: "1 Corinthians 8:3"),
       Question(prompt: "Whoever loves > God is what?", answer: "Known by God.", verse: "1 Corinthians 8:3"),
       Question(prompt: "What is nothing at > all in the world?", answer: "An idol.", verse: "1 Corinthians 8:4"),
@@ -277,7 +261,7 @@ extension QuestionGroup {
       Question(prompt: "Made myself > a slave to everyone, why?", answer: "To win as many as possible. ", verse: "1 Corinthians 9:19"),
       Question(prompt: "The seal > of my apostleship in whom?", answer: "The Lord.", verse: "1 Corinthians 9:2"),
       Question(prompt: "The seal > of what?", answer: "My apostleship in the Lord.", verse: "1 Corinthians 9:2"),
-      Question(prompt: "I am not free > from Gods law but am what?", answer: "Under Christ's law.", verse: "1 Corinthians 9:21"),
+      Question(prompt: "I am not free > from God's law but am what?", answer: "Under Christ's law.", verse: "1 Corinthians 9:21"),
       Question(prompt: "I became weak > to what?", answer: "Win the weak.", verse: "1 Corinthians 9:22"),
       Question(prompt: "I have become > what?", answer: "All things to all people.", verse: "1 Corinthians 9:22"),
       Question(prompt: "I may share > in what?", answer: "Its blessings.", verse: "1 Corinthians 9:23"),
@@ -504,7 +488,7 @@ extension QuestionGroup {
       Question(prompt: "What no > eye has seen, ...", answer: "what no ear has heard, and what no human mind has conceived--the things God has prepared for those who love him--these are the things God has revealed to us by his Spirit.  The Spirit searches all things, even the deep things of God.", verse: "1 Corinthians 2:9-10"),
       Question(prompt: "If anyone builds > on this  ", answer: "foundation using gold, silver, costly stones, wood, hay or straw, their work will be shown for what it is, because the Day will bring it to light. It will be revealed with fire, and the fire will test the quality of each person's work.", verse: "1 Corinthians 3:12-13"),
       Question(prompt: "Quote 1 Corinthians chapter 3 verses 12 and 13.", answer: "If anyone builds on this foundation using gold, silver, costly stones, wood, hay or straw, their work will be shown for what it is, because the Day will bring it to light.  It will be revealed with fire, and the fire will test the quality of each person's work.", verse: "1 Corinthians 3:12-13"),
-      Question(prompt: "Dont you know that you  ...", answer: "yourselves are God's temple and that God's Spirit dwells in your midst.", verse: "1 Corinthians 3:16"),
+      Question(prompt: "Don't you know that you ...", answer: "yourselves are God's temple and that God's Spirit dwells in your midst.", verse: "1 Corinthians 3:16"),
       Question(prompt: "Quote 1 Corinthians chapter 3 verse 16.", answer: "Don't you know that you yourselves are God's temple and that God's Spirit dwells in your midst? ", verse: "1 Corinthians 3:16"),
       Question(prompt: "Quote 1 Corinthians chapter 3 verse 19.", answer: "For the wisdom of this world is foolishness in God's sight. As it is written: 'He catches the wise in their craftiness'.", verse: "1 Corinthians 3:19"),
       Question(prompt: "For the wisdom > of this  ", answer: "world is foolishness in God's sight. As it is written: 'He catches the wise in their craftiness'.", verse: "1 Corinthians 3:19"),
@@ -522,7 +506,7 @@ extension QuestionGroup {
       Question(prompt: "Therefore judge > nothing before the ", answer: "appointed time; wait until the Lord comes. He will bring to light what is hidden in darkness and will expose the motives of the heart. At that time each will receive their praise from God.", verse: "1 Corinthians 4:5"),
       Question(prompt: "Quote 1 Corinthians chapter 4 verse 5.", answer: "Therefore judge nothing before the appointed time; wait until the Lord comes. He will bring to light what is hidden in darkness and will expose the motives of the heart. At that time each will receive their praise from God.", verse: "1 Corinthians 4:5"),
       Question(prompt: "Your > boasting is not good", answer: "Don't you know that a little yeast leavens the whole batch of dough? ", verse: "1 Corinthians 5:6"),
-      Question(prompt: "Dont > you know that a ", answer: "little yeast leavens the whole batch of dough?", verse: "1 Corinthians 5:6"),
+      Question(prompt: "Don't > you know that a ", answer: "little yeast leavens the whole batch of dough?", verse: "1 Corinthians 5:6"),
       Question(prompt: "Quote 1 Corinthians chapter 5 verse 6.", answer: "Your boasting is not good. Don't you know that a little yeast leavens the whole batch of dough? ", verse: "1 Corinthians 5:6"),
       Question(prompt: "Quote 1 Corinthians chapter 5 verse 7.", answer: "Get rid of the old yeast, so that you may be a new unleavened batch-- as you really are.  For Christ, our Passover lamb, has been sacrificed.", verse: "1 Corinthians 5:7"),
       Question(prompt: "Get > rid of the old yeast, ", answer: "so that you may be a new unleavened batch-- as you really are.  For Christ, our Passover lamb, has been sacrificed.", verse: "1 Corinthians 5:7"),
@@ -579,7 +563,7 @@ extension QuestionGroup {
       Question(prompt: "Quote 1 Corinthians chapter 11 verse 11.", answer: "Nevertheless, in the Lord woman is not independent of man, nor is man independent of woman.", verse: "1 Corinthians 11:11"),
       Question(prompt: "Quote 1 Corinthians chapter 11 verses 11 and 12.", answer: "Nevertheless, in the Lord woman is not independent of man, nor is man independent of woman.  For as woman came from man, so also man is born of woman. But everything comes from God.", verse: "1 Corinthians 11:11-12"),
       Question(prompt: "Quote 1 Corinthians chapter 11 verse 12.", answer: "For as woman came from man, so also man is born of woman. But everything comes from God.", verse: "1 Corinthians 11:12"),
-      Question(prompt: "Dont you have > homes to ", answer: "eat and drink in? Or do you despise the church of God by humiliating those who have nothing? What shall I say to you? Shall I praise you? Certainly not in this matter.", verse: "1 Corinthians 11:22"),
+      Question(prompt: "Don't you have > homes to ", answer: "eat and drink in? Or do you despise the church of God by humiliating those who have nothing? What shall I say to you? Shall I praise you? Certainly not in this matter.", verse: "1 Corinthians 11:22"),
       Question(prompt: "For I received > from the ", answer: "Lord what I also passed on to you: The Lord Jesus, on the night he was betrayed, took bread.", verse: "1 Corinthians 11:23"),
       Question(prompt: "The Lord Jesus, on > the ", answer: "night he was betrayed, took bread, and when he had given thanks, he broke it and said, 'This is my body, which is for you; do this in remembrance of me.'", verse: "1 Corinthians 11:23-24"),
       Question(prompt: "Quote 1 Corinthians chapter 11 verses 23 and 24.", answer: "For I received from the Lord what I also passed on to you: The Lord Jesus, on the night he was betrayed, took bread, and when he had given thanks, he broke it and said, 'This is my body, which is for you; do this in remembrance of me.'", verse: "1 Corinthians 11:23-24"),
@@ -590,7 +574,7 @@ extension QuestionGroup {
       Question(prompt: "This cup is > the new ", answer: "covenant in my blood; do this, whenever you drink it, in remembrance of me.", verse: "1 Corinthians 11:25"),
       Question(prompt: "Quote 1 Corinthians chapter 11 verses 25 and 26.", answer: "In the same way, after supper he took the cup, saying, 'This cup is the new covenant in my blood; do this, whenever you drink it, in remembrance of me.'  For whenever you eat this bread and drink this cup, you proclaim the Lord's death until he comes.", verse: "1 Corinthians 11:25-26"),
       Question(prompt: "Quote 1 Corinthians chapter 11 verse 26.", answer: "For whenever you eat this bread and drink this cup, you proclaim the Lord's death until he comes.", verse: "1 Corinthians 11:26"),
-      Question(prompt: " For whenever > you eat this ", answer: "bread and drink this cup, you proclaim the Lord's death until he comes.", verse: "1 Corinthians 11:26"),
+      Question(prompt: "For whenever > you eat this ", answer: "bread and drink this cup, you proclaim the Lord's death until he comes.", verse: "1 Corinthians 11:26"),
       Question(prompt: "Quote 1 Corinthians chapter 12 verse 11.", answer: "All these are the work of one and the same Spirit, and he distributes them to each one, just as he determines.", verse: "1 Corinthians 12:11"),
       Question(prompt: "Just > as a body, though  ", answer: "one, has many parts, but all its many parts form one body, so it is with Christ.", verse: "1 Corinthians 12:12"),
       Question(prompt: "Quote 1 Corinthians chapter 12 verse 19.", answer: "If they were all one part, where would the body be? ", verse: "1 Corinthians 12:19"),
@@ -736,7 +720,7 @@ extension QuestionGroup {
       Question(prompt: "Quote 2 Corinthians chapter 10 verse 5.", answer: "We demolish arguments and every pretension that sets itself up against the knowledge of God, and we take captive every thought to make it obedient to Christ.", verse: "2 Corinthians 10:5"),
       Question(prompt: "Quote 2 Corinthians chapter 11 verse 14.", answer: "And no wonder, for Satan himself masquerades as an angel of light.", verse: "2 Corinthians 11:14"),
       Question(prompt: "And no > wonder, for Satan ", answer: "himself masquerades as an angel of light.", verse: "2 Corinthians 11:14"),
-      Question(prompt: "Who is > weak, and I  ", answer: "do not feel weak? Who is led into sin, and I do not inwardly burn.", verse: "2 Corinthians 11:29"),
+      Question(prompt: "Who is > weak, and I ", answer: "do not feel weak? Who is led into sin, and I do not inwardly burn.", verse: "2 Corinthians 11:29"),
       Question(prompt: "Quote 2 Corinthians chapter 11 verse 29.", answer: "Who is weak, and I do not feel weak? Who is led into sin, and I do not inwardly burn.", verse: "2 Corinthians 11:29"),
       Question(prompt: "Quote 2 Corinthians chapter 11 verse 3.", answer: "But I am afraid that just as Eve was deceived by the serpent's cunning, your minds may somehow be led astray from your sincere and pure devotion to Christ.", verse: "2 Corinthians 11:3"),
       Question(prompt: "But I am afraid > that ", answer: "just as Eve was deceived by the serpent's cunning, your minds may somehow be led astray from your sincere and pure devotion to Christ.", verse: "2 Corinthians 11:3"),
@@ -776,7 +760,7 @@ extension QuestionGroup {
       Question(prompt: "According to 1 Corinthians chapter 2: I did not > what?", answer: "Come with eloquence or human wisdom.", verse: "1 Corinthians 2:1"),
       Question(prompt: "According to 1 Corinthians chapter 2, verse 12: the spirit of what? >", answer: "The world.", verse: "1 Corinthians 2:12"),
       Question(prompt: "According to 1 Corinthians chapter 2, verse 14: what things? >", answer: "The things that come from the Spirit of God.", verse: "1 Corinthians 2:14"),
-      Question(prompt: "According to 1 Corinthians chapter 2, verse 5: Gods what? >", answer: "Power.", verse: "1 Corinthians 2:5"),
+      Question(prompt: "According to 1 Corinthians chapter 2, verse 5: God's what? >", answer: "Power.", verse: "1 Corinthians 2:5"),
       Question(prompt: "According to 1 Corinthians chapter 2, verse 5: what wisdom? >", answer: "Human wisdom.", verse: "1 Corinthians 2:5"),
       Question(prompt: "According to 1 Corinthians chapter 2: a message of > what?", answer: "Wisdom.", verse: "1 Corinthians 2:6"),
       Question(prompt: "According to 1 Corinthians chapter 2, verse 7: whose wisdom? >", answer: "God's wisdom.", verse: "1 Corinthians 2:7"),
@@ -810,7 +794,7 @@ extension QuestionGroup {
       Question(prompt: "According to 1 Corinthians chapter 6: do not > be what?", answer: "Deceived.", verse: "1 Corinthians 6:9"),
       Question(prompt: "According to 1 Corinthians chapter 7: if a woman > has what?", answer: "A husband who is not a believer.", verse: "1 Corinthians 7:13"),
       Question(prompt: "According to 1 Corinthians chapter 7, verse 15: live how? >", answer: "In peace.", verse: "1 Corinthians 7:15"),
-      Question(prompt: "According to 1 Corinthians chapter 7: Gods > what?", answer: "Commands.", verse: "1 Corinthians 7:19"),
+      Question(prompt: "According to 1 Corinthians chapter 7: God's > what?", answer: "Commands.", verse: "1 Corinthians 7:19"),
       Question(prompt: "According to 1 Corinthians chapter 7, verse 23: do not what? >", answer: "Become slaves of human beings.", verse: "1 Corinthians 7:23"),
       Question(prompt: "According to 1 Corinthians chapter 7, verse 23: you were what? >", answer: "Bought at a price.", verse: "1 Corinthians 7:23"),
       Question(prompt: "According to 1 Corinthians chapter 7: you were bought > how?", answer: "At a price.", verse: "1 Corinthians 7:23"),
@@ -860,7 +844,7 @@ extension QuestionGroup {
       Question(prompt: "According to 1 Corinthians chapter 11, verse 11: nevertheless, what?", answer: "In the Lord woman is not independent of man, nor is man independent of woman.", verse: "1 Corinthians 11:11"),
       Question(prompt: "According to 1 Corinthians chapter 11, verse 14: who has long hair?", answer: "A man.", verse: "1 Corinthians 11:14"),
       Question(prompt: "According to 1 Corinthians chapter 11: what churches? >", answer: "The churches of God.", verse: "1 Corinthians 11:16"),
-      Question(prompt: "According to 1 Corinthians chapter 11: Gods > what?", answer: "Approval.", verse: "1 Corinthians 11:19"),
+      Question(prompt: "According to 1 Corinthians chapter 11: God's > what?", answer: "Approval.", verse: "1 Corinthians 11:19"),
       Question(prompt: "According to 1 Corinthians chapter 11, verse 20: the Lords what?", answer: "Supper.", verse: "1 Corinthians 11:20"),
       Question(prompt: "According to 1 Corinthians chapter 11: what night? >", answer: "The night he was betrayed.", verse: "1 Corinthians 11:23"),
       Question(prompt: "According to 1 Corinthians chapter 11, verse 24: do this why?", answer: "In remembrance of me.", verse: "1 Corinthians 11:24"),
@@ -959,7 +943,7 @@ extension QuestionGroup {
       Question(prompt: "According to 2 Corinthians chapter 4, verse 16: we do not what?", answer: "Lose heart.", verse: "2 Corinthians 4:16"),
       Question(prompt: "According to 2 Corinthians chapter 4: we commend ourselves > how?", answer: "To everyone's conscience in the sight of God.", verse: "2 Corinthians 4:2"),
       Question(prompt: "According to 2 Corinthians chapter 4: the image of > whom?", answer: "God.", verse: "2 Corinthians 4:4"),
-      Question(prompt: "According to 2 Corinthians chapter 4, verse 6: Gods what?", answer: "Glory.", verse: "2 Corinthians 4:6"),
+      Question(prompt: "According to 2 Corinthians chapter 4, verse 6: God's what?", answer: "Glory.", verse: "2 Corinthians 4:6"),
       Question(prompt: "According to 2 Corinthians chapter 5: an eternal > what?", answer: "House in heaven.", verse: "2 Corinthians 5:1"),
       Question(prompt: "According to 2 Corinthians chapter 5, verse 14: Christs what?", answer: "Love.", verse: "2 Corinthians 5:14"),
       Question(prompt: "According to 2 Corinthians chapter 5: what has come? >", answer: "The new creation.", verse: "2 Corinthians 5:17"),
@@ -971,7 +955,7 @@ extension QuestionGroup {
       Question(prompt: "According to 2 Corinthians chapter 6: do not > be what?", answer: "Yoked together with unbelievers. ", verse: "2 Corinthians 6:14"),
       Question(prompt: "According to 2 Corinthians chapter 6, verse 17: I will what?", answer: "Receive you.", verse: "2 Corinthians 6:17"),
       Question(prompt: "According to 2 Corinthians chapter 6, verse 18: I will be what?", answer: "A Father to you.", verse: "2 Corinthians 6:18"),
-      Question(prompt: "According to 2 Corinthians chapter 6, verse 2: Gods what?", answer: "Favor.", verse: "2 Corinthians 6:2"),
+      Question(prompt: "According to 2 Corinthians chapter 6, verse 2: God's what?", answer: "Favor.", verse: "2 Corinthians 6:2"),
       Question(prompt: "According to 2 Corinthians chapter 6, verse 4: great what?", answer: "Endurance.", verse: "2 Corinthians 6:4"),
       Question(prompt: "According to 2 Corinthians chapter 6: sincere > what?", answer: "Love.", verse: "2 Corinthians 6:6"),
       Question(prompt: "According to 2 Corinthians chapter 6: weapons of > what?", answer: "Righteousness.", verse: "2 Corinthians 6:7"),
@@ -1029,7 +1013,7 @@ extension QuestionGroup {
       Question(prompt: "According to 2 Corinthians chapter 13: brothers and sisters, > what?", answer: "Rejoice.", verse: "2 Corinthians 13:11"),
       Question(prompt: "According to 2 Corinthians chapter 13: greet one another > how?", answer: "With a holy kiss.", verse: "2 Corinthians 13:12"),
       Question(prompt: "According to 2 Corinthians chapter 13, verse 14: Holy what?", answer: "Spirit.", verse: "2 Corinthians 13:14"),
-      Question(prompt: "According to 2 Corinthians chapter 13, verse 4: Gods what?", answer: "Power.", verse: "2 Corinthians 13:4")
+      Question(prompt: "According to 2 Corinthians chapter 13, verse 4: God's what?", answer: "Power.", verse: "2 Corinthians 13:4")
     ]
     return QuestionGroup(questions: questions, title: "Reference Questions (CR & CVR)")
   }

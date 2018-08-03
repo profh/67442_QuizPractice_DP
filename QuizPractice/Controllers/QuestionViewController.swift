@@ -9,14 +9,10 @@ import UIKit
 // MARK:  QuestionViewControllerDelegate
 protocol QuestionViewControllerDelegate: class {
 
-  func questionViewController(
-    _ viewController: QuestionViewController,
-    didCancel questionGroup: QuestionGroup,
-    at questionIndex: Int)
+  func questionViewController(_ viewController: QuestionViewController, didComplete questionGroup: QuestionGroup)
+  
+  // func questionViewController(_ viewController: QuestionViewController, didCancel questionGroup: QuestionGroup, at questionIndex: Int)
 
-  func questionViewController(
-    _ viewController: QuestionViewController,
-    didComplete questionGroup: QuestionGroup)
 }
 
 class QuestionViewController: UIViewController {
@@ -34,21 +30,23 @@ class QuestionViewController: UIViewController {
   public var correctCount = 0
   public var questionCount = 0
   public var delegate: QuestionViewControllerDelegate?
-
+  public var questionStrategy: QuestionStrategy! {
+    didSet {
+      navigationItem.title = questionStrategy.title()
+    }
+  }
   
   // MARK: actions
   @IBAction func correctTapped(_ sender: Any) {
     correctCount += 1
-    questionCount += 1
-    numCorrectLabel.text = "\(correctCount)"
-    numAttemptedLabel.text = "\(questionCount)"
+    questionStrategy.markQuestionCorrect()
+    updateCounters()
     showNextQuestion()
   }
   
   @IBAction func wrongTapped(_ sender: Any) {
-    questionCount += 1
-    numCorrectLabel.text = "\(correctCount)"
-    numAttemptedLabel.text = "\(questionCount)"
+    questionStrategy.markQuestionIncorrect()
+    updateCounters()
     showNextQuestion()
   }
   
@@ -60,7 +58,7 @@ class QuestionViewController: UIViewController {
 
   // MARK: question management
   private func showQuestion() {
-    let question = questionGroup.questions[questionIndex]
+    let question = questionStrategy.currentQuestion()
     answerLabel.text = question.answer
     promptLabel.text = question.prompt
     answerLabel.isHidden = true
@@ -68,20 +66,24 @@ class QuestionViewController: UIViewController {
   }
   
   private func showNextQuestion() {
-    questionIndex += 1
-    guard questionIndex < questionGroup.questions.count else {
+    if questionStrategy.advanceToNextQuestion() {
+      showQuestion()
+    }
+    else {
       delegate?.questionViewController(self, didComplete: questionGroup)
-
       return
     }
-    showQuestion()
+  }
+  
+  private func updateCounters() {
+    questionCount += 1
+    numCorrectLabel.text = "\(correctCount)"
+    numAttemptedLabel.text = "\(questionCount)"
   }
   
   // MARK: viewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
-//    setupCancelButton()
-    navigationItem.title = questionGroup.title
     numCorrectLabel.text = "0"
     numAttemptedLabel.text = "0"
     showQuestion()
@@ -90,7 +92,6 @@ class QuestionViewController: UIViewController {
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
 
 

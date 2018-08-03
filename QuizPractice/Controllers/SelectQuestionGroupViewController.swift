@@ -15,19 +15,17 @@ class SelectQuestionGroupViewController: UIViewController {
     }
   }
   // MARK: properties
+  private let appSettings = AppSettings.shared
   public let questionGroups = QuestionGroup.allGroups()
   private var selectedQuestionGroup: QuestionGroup!
 
   
-  // MARK: viewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
-    
   }
 
   override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
   }
 }
 
@@ -38,14 +36,17 @@ extension SelectQuestionGroupViewController: UITableViewDataSource {
       return questionGroups.count
   }
   
-//  public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//      return UITableViewCell()
-//  }
-  
   public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionGroupCell") as! QuestionGroupCell
     let questionGroup = questionGroups[indexPath.row]
     cell.titleLabel.text = questionGroup.title
+    
+    questionGroup.score.runningPercentage.addObserver(cell, options: [.initial, .new]) {
+      [weak cell] (percentage, _) in
+      DispatchQueue.main.async {
+        cell?.percentageLabel.text = String(format: "%.0f %%", round(100 * percentage))
+      }
+    }
     return cell
   }
 }
@@ -66,7 +67,10 @@ extension SelectQuestionGroupViewController: UITableViewDelegate {
   public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard let viewController = segue.destination
       as? QuestionViewController else { return }
-    viewController.questionGroup = selectedQuestionGroup
+    // viewController.questionGroup = selectedQuestionGroup
+    // viewController.questionStrategy = RandomQuestionStrategy(questionGroup: selectedQuestionGroup)
+    // viewController.questionStrategy = SequentialQuestionStrategy(questionGroup: selectedQuestionGroup)
+    viewController.questionStrategy = appSettings.questionStrategy(for: selectedQuestionGroup)
     viewController.delegate = self
   }
 }
