@@ -9,7 +9,7 @@ import Foundation
 // MARK: RandomQuestionStrategy
 public class AlphabeticalQuestionStrategy: BaseQuestionStrategy {
   
-  // All we have to do here is modify our init so that we are drawing 20 questions of a given grouping at random
+  // All we have to do here is modify our init so that we are ordering questions alphabetically
   
   // MARK: object lifecycle
   override public init(questionGroup: QuestionGroup) {

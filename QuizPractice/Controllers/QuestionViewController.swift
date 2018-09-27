@@ -6,7 +6,7 @@
 
 import UIKit
 
-// MARK:  QuestionViewControllerDelegate
+// MARK: - QuestionViewControllerDelegate
 protocol QuestionViewControllerDelegate: class {
 
   func questionViewController(_ viewController: QuestionViewController, didComplete questionGroup: QuestionGroup)
@@ -17,14 +17,14 @@ protocol QuestionViewControllerDelegate: class {
 
 class QuestionViewController: UIViewController {
   
-  // MARK: outlets
+  // MARK: - outlets
   @IBOutlet weak var promptLabel: UILabel!
   @IBOutlet weak var answerLabel: UILabel!
   @IBOutlet weak var answerButton: UIButton!
   @IBOutlet weak var numCorrectLabel: UILabel!
   @IBOutlet weak var numAttemptedLabel: UILabel!
   
-  // MARK: instance variable
+  // MARK: - instance variable
   public var questionGroup = QuestionGroup.intQuestions()  // we will let them choose in later iterations
   public var questionIndex = 0
   public var correctCount = 0
@@ -36,7 +36,7 @@ class QuestionViewController: UIViewController {
     }
   }
   
-  // MARK: actions
+  // MARK: - actions
   @IBAction func correctTapped(_ sender: Any) {
     correctCount += 1
     questionStrategy.markQuestionCorrect()
@@ -56,7 +56,7 @@ class QuestionViewController: UIViewController {
     answerLabel.isHidden = false
   }
 
-  // MARK: question management
+  // MARK: - question management
   private func showQuestion() {
     let question = questionStrategy.currentQuestion()
     answerLabel.text = question.answer
@@ -81,7 +81,7 @@ class QuestionViewController: UIViewController {
     numAttemptedLabel.text = "\(questionCount)"
   }
   
-  // MARK: viewDidLoad
+  // MARK: - viewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
     numCorrectLabel.text = "0"
